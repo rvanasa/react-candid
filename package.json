@@ -1,6 +1,6 @@
 {
   "name": "react-candid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Embed the Candid UI in your React application",
   "author": "Ryan Vandersmith (https://github.com/rvanasa)",
   "license": "Apache-2.0",
