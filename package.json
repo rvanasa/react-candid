@@ -1,7 +1,7 @@
 {
   "name": "react-candid",
   "version": "0.1.0",
-  "description": "Embed a Candid user interface in your React application.",
+  "description": "Embed the Candid UI in your React application",
   "author": "DFINITY Foundation",
   "license": "Apache-2.0",
   "repository": "https://github.com/dfinity/react-candid",
