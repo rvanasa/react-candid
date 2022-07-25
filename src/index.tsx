@@ -57,7 +57,8 @@ const MAIN_CANISTER_ID = 'a4gq6-oaaaa-aaaab-qaa4q-cai';
 //   return candid;
 // }
 
-export interface CandidPropTypes {
+export interface CandidPropTypes
+  extends React.ComponentPropsWithoutRef<'iframe'> {
   principal: string;
   local?: boolean | string;
   candid?: string;
@@ -71,23 +72,27 @@ export function Candid({
   local = false,
   width = '100%',
   height = '400px',
+  src,
+  style,
+  ...others
 }: CandidPropTypes) {
-  const uiCanisterUrl = (
-    local !== undefined
-      ? local
-      : // : isLocal(agent)
-        false
-  )
-    ? // eslint-disable-line no-constant-condition
-      `http://${LOCAL_CANISTER_ID}.${
-        typeof local === 'string' ? local : 'localhost:8000'
-      }`
-    : `https://${MAIN_CANISTER_ID}.raw.ic0.app`;
+  const uiCanisterUrl = // (local === undefined ? isLocal(agent) : local)
+    local
+      ? // eslint-disable-line no-constant-condition
+        `http://${LOCAL_CANISTER_ID}.${
+          typeof local === 'string' ? local : 'localhost:8000'
+        }`
+      : `https://${MAIN_CANISTER_ID}.raw.ic0.app`;
 
-  const tag = 0; // TODO: triggering updates
+  const tag = 0; // TODO: manually triggering updates
   const didParam =
     candid && candid.length < 2048 ? encodeURIComponent(btoa(candid)) : '';
   const iframeUrl = `${uiCanisterUrl}/?id=${principal}&tag=${tag}&did=${didParam}`;
-  console.log(iframeUrl);
-  return <iframe src={iframeUrl} style={{ border: 'none', width, height }} />;
+  return (
+    <iframe
+      src={src || iframeUrl}
+      style={{ border: 'none', width, height, ...style }}
+      {...others}
+    />
+  );
 }
