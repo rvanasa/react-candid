@@ -2,7 +2,7 @@
   "name": "react-candid",
   "version": "0.1.0",
   "description": "Embed the Candid UI in your React application",
-  "author": "DFINITY Foundation",
+  "author": "Ryan Vandersmith (https://github.com/rvanasa)",
   "license": "Apache-2.0",
   "repository": "https://github.com/dfinity/react-candid",
   "main": "dist/index.js",
