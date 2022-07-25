@@ -62,8 +62,8 @@ export interface CandidPropTypes
   principal: string;
   local?: boolean | string;
   candid?: string;
-  width?: string;
-  height?: string;
+  width?: string | number;
+  height?: string | number;
 }
 
 export function Candid({
